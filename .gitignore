@@ -2,7 +2,7 @@
 node_modules/
 TODO.txt
 Thumbs.db
-.psd
-.sketch
 .DS_Store
-.lock
+*.psd
+*.sketch
+*.lock
