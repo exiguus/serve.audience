@@ -1,0 +1,10 @@
+<nav id="mainNavigation" role="navigation" class="clearfix" data-id="9999">
+	<h3><a href="index.html" title="<%= @project[:title] + @spacer + @project[:subtitle] %>"><%= @project[:title] %></a></h3>
+	<ol>
+	<%
+		@categories.each do |category|
+	%>
+		<li<% if @current == category[:id].parameterize %> class="current" <% end %>><a href="<%= category[:id].parameterize %>.html" title="<%= category[:id].parameterize %>"><%= category[:name] %></a></li>
+	<% end %>
+	</ol>
+</nav>

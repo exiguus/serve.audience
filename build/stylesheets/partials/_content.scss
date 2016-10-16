@@ -1,0 +1,206 @@
+//
+// Virtual Content Classes
+//
+
+@-webkit-keyframes blink {
+  from {
+     opacity: 1;
+  }
+  to {
+     opacity: 0.25;
+  }
+}
+@keyframes blink {
+   from {
+      opacity: 1;
+   }
+   to {
+      opacity: 0.25;
+   }
+ }
+
+.links {
+  a { @include basic-link($link-color, $link-visited-color, $link-hover-color); }
+  a.more {
+    white-space: nowrap;
+    &:after { content: " »"; }
+  }
+}
+
+.typography {
+  @include basic-typography;
+}
+
+#content {
+  &:before {
+    position: fixed;
+    right: $grid-gutter;
+    top: $grid-gutter / 3;
+    content: attr(data-category);
+    font-size: 80%;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 3;
+    color: $text-color;
+    opacity: 0.1;
+    -webkit-animation-duration: 0.8s;
+    -webkit-animation-name: blink;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in;
+    animation-duration: 0.8s;
+    animation-name: blink;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-timing-function: ease-in;
+  }
+}
+
+#content,
+.content {
+  @extend .links;
+  @extend .typography;
+
+  a {
+    &.toc, &[href="#toc"] {
+      display: block;
+      content: "m";
+      font-size: 80%;
+    }
+  }
+  section {
+    img {
+      max-width: 100%;
+    }
+    article {
+      position: relative;
+      padding-top: $grid-gutter*3;
+      padding-bottom: $grid-gutter*3;
+      min-height: 100vh;
+      &:before {
+        content: "";
+      }
+      &.active:before {
+        content:"{"attr(data-id)"}";
+        position: absolute;
+        top: $grid-gutter*2;
+        left: -15%;
+        font-size: 300%;
+        font-style: italic;
+        color: #ddd;
+        @include transition(all 0.4s ease-in);
+      }
+      a {
+        word-wrap: break-word;
+      }
+      h3,h4,h5 {
+        padding-top: $grid-gutter;
+        &+a {
+            margin-top: -0.8em;
+        }
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0.75rem;
+        tr {
+          th {
+            font-weight: bold;
+          }
+          td {
+
+          }
+          th,td {
+            padding: 0.75rem;
+            vertical-align: top;
+          }
+        }
+        thead {
+          tr {
+            th,td {
+              border-bottom: 1px solid #eee;
+            }
+          }
+        }
+        tbody {
+          tr {
+            th {
+              background-color: #f9f9f9;
+            }
+            &:nth-child(even) {
+              td,th {
+                background-color: #eee;
+              }
+            }
+          }
+        }
+      }
+      dl {
+        dt {
+          kbd {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+  nav {
+    padding-top: $grid-gutter*3;
+    ol {
+      li {
+        list-style: decimal;
+        ol {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+/***************** Copied from Boilderplate *******************/
+
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}

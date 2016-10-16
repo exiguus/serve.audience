@@ -1,0 +1,36 @@
+{
+  "name": "serve.audience",
+  "description": "A presentation framework for frontend web developer. Build on serve and grunt.",
+  "keywords": ["presentation","present","powerpoint","browser presentation","web presentation","serve","sass","grunt","compass","static","framework"],
+  "author": "exiguus",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/exiguus/serve.audience.git"
+  },
+  "bugs": {
+    "url": "https://github.com/exiguus/serve.audience/issues"
+  },
+  "homepage": "https://github.com/exiguus/serve.audience",
+  "readme": "https://github.com/exiguus/serve.audience/README.md",
+  "version": "1.0.0",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-cssmin": ">=0.4.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-imagemin": "^1.0.0",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-contrib-copy": "^0.8.1",
+    "grunt-css-url-embed": "^1.6.1",
+    "grunt-banner": "^0.6.0",
+    "grunt-clean": "",
+    "grunt-html": "^5.0.0",
+    "grunt-line-remover": "",
+    "grunt-prettify": "^0.4.0",
+    "grunt-remove-empty-lines": "",
+    "grunt-remove-logging": "",
+    "grunt-responsive-images": ""
+  }
+}

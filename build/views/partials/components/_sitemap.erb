@@ -1,0 +1,61 @@
+
+<div id="content" data-category="<%= @title %>">
+  <nav id="toc">
+    <h4><%= getDict("toc") %></h4>
+    <ol>
+
+  <%
+    categories.each do |category|
+
+      @id = category[:id]
+      @title = category[:title]
+      @description = category[:description]
+      @tags = category[:tags]
+
+  %>
+      <li>
+        <a href="#<%= category[:id] %>" title="<%= getDict("jump-to") %> <%= @title %>"><%= @title %></a>
+        <% if category[:items].length > 0 %>
+          <%= render :partial => "/partials/components/toc", :locals => {
+                :items => category[:items]
+              }
+          %>
+        <% end %>
+      </li>
+  <% end %>
+    </ol>
+  </nav>
+<%
+  @l = 0
+  categories.each do |category|
+
+    @id = category[:id]
+    @title = category[:title]
+    @description = category[:description]
+    @tags = category[:tags]
+
+%>
+
+  <section id="<%= category[:id] %>">
+    <header>
+      <h3><%= category[:title] %></h3>
+      <div class="text">
+        <%= category[:description] %>
+      </div>
+    </header>
+    <% if category[:items].length > 0 %>
+      <nav id="<%= category[:id] %>_toc">
+        <h4><%= getDict("toc") %></h4>
+        <%= render :partial => "/partials/components/toc", :locals => {
+              :items => category[:items]
+            }
+        %>
+      </nav>
+      <%= render :partial => "/partials/components/article", :locals => {
+            :items => category[:items]
+          }
+      %>
+    <% end %>
+  </section>
+<% end %>
+</div>

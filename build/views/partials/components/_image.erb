@@ -1,0 +1,29 @@
+<% unless defined? alt then alt = @title end %>
+<% unless defined? image then %>
+  <div class="warning">
+    <h4>Error</h4>
+    <p>No image file given</p>
+  </div>
+<% else %>
+  <% name, match, suffix = image.rpartition('.') %>
+  <% if suffix == "gif" %>
+  <div class="image">
+    <img src="<%=  ENV['image_path'] + image %>" alt="<%= alt %>">
+  </div>
+  <% else %>
+  <%
+  image_file_lg = ENV['image_path'] + name + ENV['image_surffix_large'] + match + suffix
+  image_file_md = ENV['image_path'] + name + ENV['image_surffix_medium'] + match + suffix
+  image_file_sm = ENV['image_path'] + name + ENV['image_surffix_small'] + match + suffix
+  image_file_xs = ENV['image_path'] + name + ENV['image_surffix_extrasmall'] + match + suffix
+  %>
+  <div class="image">
+    <picture>
+      <source srcset="<%= image_file_lg %>" media="(min-width: <%= ENV['screen_lg'] %>px)">
+      <source srcset="<%= image_file_md %>" media="(min-width: <%= ENV['screen_md'] %>px) and (max-width: <%= ENV['screen_lg_minus1'] %>px)">
+      <source srcset="<%= image_file_sm %>" media="(min-width: <%= ENV['screen_sm'] %>px) and (max-width: <%= ENV['screen_md_minus1'] %>px)">
+      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" srcset="<%= image_file_xs %>" alt="<%= alt %>">
+    </picture>
+  </div>
+  <% end %>
+<% end %>

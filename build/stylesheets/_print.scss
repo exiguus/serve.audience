@@ -1,0 +1,39 @@
+body {
+  > .container {
+    > header {
+      page-break-after: always;
+    }
+    > footer {
+      dl:first-child,
+      hr {
+        display: none !important;
+      }
+    }
+    > nav {
+      display: none !important;
+    }
+  }
+  main {
+    #content,
+    .content {
+      &:before {
+        display: none !important;
+      }
+    }
+    section {
+      > header,
+      nav,
+      article {
+        page-break-after: always;
+      }
+      article {
+        &:before {
+          display: none !important;
+        }
+      }
+    }
+  }
+  menu {
+    display: none !important;
+  }
+}

@@ -1,0 +1,53 @@
+<% unless defined? toc then toc = true end %>
+<% unless defined? data then %>
+  <div id="content" data-category="error">
+    <section>
+      <div class="warning">
+        <h3>Error</h3>
+        <p>No Article data defined</p>
+      </div>
+    </section>
+  </div>
+<% else %>
+  <div id="content" data-category="<%= data[:name] %>">
+    <section>
+      <header>
+        <h3><%= data[:title] %></h3>
+        <% if data[:image] != "" %>
+        <figure>
+          <%= render :partial => "/partials/components/image", :locals => {
+                :image => data[:image],
+                :alt => data[:title]
+              }
+          %>
+          <figcaption><%= data[:description] %></figcaption>
+        </figure>
+        <% else %>
+        <div class="text">
+          <%= data[:description] %>
+        </div>
+        <% end %>
+      </header>
+      <% if data[:items].length > 0 %>
+      <nav id="toc">
+        <h4><%= getDict("toc") %></h4>
+        <%= render :partial => "/partials/components/toc", :locals => {
+              :items => data[:items]
+            }
+        %>
+      </nav>
+      <% if @isSingle == false %>
+      <menu>
+        <ul>
+          <li><a href="#top" title="<%= getDict("top") %>"><%= getDict("top") %></a></li>
+          <li><a href="#article_1" title="<%= getDict("jump-to") %> <%= getDict("first-slide") %>"><%= getDict("first-slide") %></a></li>        </ul>
+      </menu>
+      <% end %>
+      <%= render :partial => "/partials/components/article", :locals => {
+            :items => data[:items]
+          }
+      %>
+      <% end %>
+    </section>
+  </div>
+<% end %>

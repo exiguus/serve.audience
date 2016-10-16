@@ -1,0 +1,27 @@
+<header id="top" data-id="0">
+		<h1><%= @project[:title] %></h1>
+		<h2>
+			<a href="index.html" title="<%= @project[:title] + @spacer + @project[:subtitle] %>">
+				<%= render :partial => "/partials/components/image", :locals => {
+							:image => @project[:image],
+							:alt => @project[:title]
+						}
+				%>
+			</a>
+		</h2>
+		<p><%= @project[:subtitle] %></p>
+</header>
+<% if @isSingle == false %>
+<menu>
+	<ul>
+		<% prevPage = getPrevCategory(@id) %>
+		<li><a href="<%= prevPage[:id].parameterize %>.html" rel="prev" title="<%= getDict("jump-to") %> <%= getDict("prev-page") %>"><%= getDict("prev-page") %></a></li>
+		<% if @category[:items].count > 0 %>
+		<li><a href="#toc" title="<%= getDict("toc") %>"><%= getDict("toc-alias") %></a></li>
+		<% else %>
+		<% nextPage = getNextCategory(@id) %>
+		<li><a href="<%= nextPage[:id].parameterize %>.html" rel="next" title="<%= getDict("jump-to") %> <%= getDict("next-page") %>"><%= getDict("next-page") %></a></li>
+		<% end %>
+	</ul>
+</menu>
+<% end %>

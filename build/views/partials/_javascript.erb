@@ -1,0 +1,9 @@
+<% if ENV["mode"] == "production" %>
+<script src="static/js/combined.min.js"></script>
+<% else %>
+<script src="static/js/modernizr.custom.js"></script>
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/jquery.custom.js"></script>
+<script src="static/js/picturefill.js"></script>
+<script src="static/js/custom.js"></script>
+<% end %>

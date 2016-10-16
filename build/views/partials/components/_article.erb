@@ -1,0 +1,47 @@
+<% unless defined? items then %>
+  <div class="warning">
+    <h3>Error</h3>
+    <p>No article items defined</p>
+  </div>
+<% else %>
+  <%
+    unless defined? @l then i = 0 else i = @l end
+    count = items.count
+    items.each do |item|
+  %>
+    <% if item[:visible] == true %>
+      <%  i = i + 1  %>
+      <article id="article_<%= i %>" data-id="<%= i %>">
+        <h4><%= item[:title] %></h4>
+        <a href="#toc" title="<%= getDict("toc") %>" class="toc"><%= getDict("toc-alias") %></a>
+        <% if item[:image] != "" %>
+        <%= render :partial => "/partials/components/image", :locals => {
+        			:image => item[:image],
+              :alt => item[:alt]
+        		}
+        %>
+        <% end %>
+        <div class="text">
+          <%= item[:text] %>
+        </div>
+      </article>
+      <% if @isSingle == false %>
+      <menu>
+        <ul>
+          <% if i > 1 %>
+          <li><a href="#article_<%= i - 1 %>" title="<%= getDict("jump-to") %> <%= getDict("prev-slide") %>"><%= getDict("prev-slide") %></a></li>
+          <% end %>
+          <li><a href="#toc" title="<%= getDict("toc") %>"><%= getDict("toc-alias") %></a></li>
+          <% if i < count %>
+          <li><a href="#article_<%= i + 1 %>" title="<%= getDict("jump-to") %> <%= getDict("next-slide") %>"><%= getDict("next-slide") %></a></li>
+          <% else %>
+          <% nextPage = getNextCategory(@id) %>
+          <li><a href="<%= nextPage[:id].parameterize %>.html" rel="next" title="<%= getDict("jump-to") %> <%= getDict("next-page") %>"><%= getDict("next-page") %></a></li>
+          <% end %>
+        </ul>
+      </menu>
+      <% end %>
+    <% end %>
+  <% end %>
+  <% unless defined? @l then i = 0 else @l = i end %>
+<% end %>

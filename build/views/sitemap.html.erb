@@ -1,0 +1,11 @@
+<%
+	@isSingle = true
+	@id = "sitemap"
+	@title = "Sitemap"
+	@description = "All Categories on one Page"
+	@tags = "sitemap, table of content, single page, one pager"
+%>
+<%= render :partial => "/partials/components/sitemap", :locals => {
+			:data => categories
+		}
+%>

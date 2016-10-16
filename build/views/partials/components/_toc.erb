@@ -1,0 +1,16 @@
+<% unless defined? items then %>
+  <div class="warning">
+    <h3>Error</h3>
+    <p>No toc items defined</p>
+  </div>
+<% else %>
+  <ol>
+    <%
+      unless defined? @l then i = 0 else i = @l end
+      items.each do |item|
+        i = i + 1
+    %>
+    <li><a href="#article_<%= i %>" title="<%= getDict("jump-to") %> <%= item[:name] %>"><%= item[:title] %></a></li>
+    <% end %>
+  </ol>
+<% end %>

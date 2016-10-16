@@ -1,0 +1,9 @@
+cd build
+grunt
+grunt images
+export mode="production"
+serve export
+export mode="development"
+grunt production
+rm -rf ../dist/
+mv html/ ../dist

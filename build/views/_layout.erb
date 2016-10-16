@@ -1,0 +1,70 @@
+<%
+	# define global variables
+	@i = 0
+	@author = author()
+	@project = project()
+	@categories = categories()
+	@dict = dict()
+	@spacer = " ~ "
+
+	# define template variabales
+	if @current
+		@category = getCategory(@current)
+		@cTitle = @spacer + @category[:title]
+		@cDescription = "" #@spacer + @category[:description]
+		@cTags = ', ' + @category[:tags]
+		@id = @category[:id]
+		@prevPage = getPrevCategory(@id)
+		@nextPage = getNextCategory(@id)
+		@homePage = getHomePage();
+	else
+		@category = ""
+		@cTitle = ""
+		@cDescription = ""
+		@cTags = ""
+		@id = @categories[0][:id]
+		@prevPage = getPrevCategory(@id)
+		@nextPage = getNextCategory(@id)
+		@homePage = getHomePage();
+	end
+
+	@title = project[:title] + @cTitle
+	@subtitle = project[:subtitle]
+	@description = project[:description] + @cDescription
+	@tags = project[:tags] + @cTags
+
+	@authorname = @author[:authorname]
+	@date = @author[:date]
+	@update = @author[:update]
+	@version = @author[:version]
+	@authorurl = @author[:authorurl]
+%>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+	<%= render :partial => "/partials/head" %>
+
+	<body>
+
+		<div class="container clearfix">
+
+
+			<%= render :partial => "/partials/header" %>
+
+			<main id="page" class="clearfix" role="main">
+
+					<%= yield %>
+
+			</main>
+
+			<% if @isSingle == false %><%= render :partial => "/partials/components/nav" %><% end %>
+
+			<%= render :partial => "/partials/footer" %>
+
+		</div>
+
+		<%= render :partial => "/partials/javascript" %>
+
+	</body>
+
+</html>

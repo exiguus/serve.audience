@@ -1,0 +1,70 @@
+<footer class="clearfix">
+
+	<dl>
+		<dt>
+			<%= getDict("home-page") %>
+		</dt>
+		<dd>
+			<kbd>H</kbd>
+		</dd>
+		<dt>
+			<%= getDict("next-page") %>
+		</dt>
+		<dd>
+			<kbd>&rarr;</kbd>
+		</dd>
+		<dt>
+			<%= getDict("prev-page") %>
+		</dt>
+		<dd>
+			<kbd>&larr;</kbd>
+		</dd>
+		<dt>
+			<%= getDict("next-slide") %>
+		</dt>
+		<dd>
+			<kbd>&darr;</kbd>
+		</dd>
+		<dt>
+			<%= getDict("prev-slide") %>
+		</dt>
+		<dd>
+			<kbd>&uarr;</kbd>
+		</dd>
+	</dl>
+	<menu>
+		<ul>
+			<li>
+				<a href="#top" title="<%= getDict("jump-to-top") %>"><%= getDict("top") %></a>
+			</li>
+			<li>
+				<a href="<%= @homePage[:id].parameterize %>.html" title="<%= getDict("go-to-start") %>"><%= getDict("home") %></a>
+			</li>
+			<li>
+				<a href="sitemap.html" rel="nofollow" title="<%= getDict("print-version") %>"><%= getDict("sitemap") %></a>
+			</li>
+		</ul>
+	</menu>
+	<hr />
+	<dl>
+		<dt><%= getDict("title") %></dt>
+		<dd><%= @project[:title] + @spacer + @project [:subtitle] %></dd>
+		<dt><%= getDict("date") %></dt>
+		<dd><time datetime="<%= @date %>"><%= @date %></time></dd>
+		<dt><%= getDict("update") %></dt>
+		<dd><time datetime="<%= @update %>"><%= @update %></time></dd>
+		<dt><%= getDict("version") %></dt>
+		<dd><%= @version %></dd>
+		<dt><%= getDict("author") %></dt>
+		<dd>
+			<address>
+				<a href="<%= @authorurl %>" title="Website <%= @authorname %>"><%= @authorname %></a>
+			</address>
+		</dd>
+	</dl>
+
+</footer>
+
+<span id="isDesktop" class="deviceSelector"></span>
+<span id="isTablet" class="deviceSelector"></span>
+<span id="isMobile" class="deviceSelector"></span>

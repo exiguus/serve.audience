@@ -1,0 +1,40 @@
+<head>
+
+	<title><%= @title + @spacer + @authorname + @spacer + @update %></title>
+
+	<meta charset="utf-8" />
+	<!--[if ie]><meta http-equiv=X-UA-Compatible content="IE=Edge"><![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="<%= @description %>" />
+	<meta name="keywords" content="<%= @tags %>" />
+	<meta name="author" content="<%= @authorname %> <%= @authorurl %>" />
+	<meta name="revisit-after" content="1 month">
+	<% if @isSingle == true %>
+	<meta name="robots" content="noindex,nodb">
+	<% else %>
+	<meta name="robots" content="index,follow">
+	<% end %>
+	<meta name="DC.title" content="<%= @title %>">
+	<meta name="DC.creator" content="<%= @authorname %> <%= @authorurl %>">
+	<meta name="DC.subject" content="<%= @title %>">
+	<meta name="DC.description" content="<%= @description %>">
+	<meta name="DC.publisher" content="<%= @authorname %>">
+	<meta name="DC.contributor" content="<%= @authorname %>">
+	<meta name="DC.date.created" content="<%= @date %>">
+	<meta name="DC.date.modified" content="<%= @update %>">
+
+	<% if ENV["mode"] == "production" %>
+	<link rel="stylesheet" href="static/style/screen.min.css" media="all" />
+	<% else %>
+	<link rel="stylesheet" href="static/style/screen.css" media="all" />
+	<% end %>
+
+	<% if @isSingle == true %>
+	<link rel="home" href="<%= @homePage[:id].parameterize %>.html" />
+	<% else %>
+	<link rel="home" href="<%= @homePage[:id].parameterize %>.html" />
+	<link rel="prev" href="<%= @prevPage[:id].parameterize %>.html" />
+	<link rel="next" href="<%= @nextPage[:id].parameterize %>.html" />
+	<% end %>
+
+</head>

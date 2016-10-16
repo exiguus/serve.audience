@@ -1,0 +1,16 @@
+<%
+	@isSingle = false
+	@current = "summary"
+
+	data = getCategory(@current)
+
+	@id = data[:id]
+	@title = data[:title]
+	@description = data[:description]
+	@tags = data[:tags]
+
+%>
+<%= render :partial => "/partials/components/section", :locals => {
+			:data => data
+		}
+%>

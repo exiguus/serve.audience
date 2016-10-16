@@ -1,0 +1,254 @@
+//
+// Basic layout and styles for site
+//
+html {
+  &.supports-touch {
+    body {
+      header {
+        padding-top: $grid-gutter * 3;
+        &.active {
+          &+menu {
+            display: block;
+            position: fixed;
+            top: $grid-gutter * 1.4 - 1;
+            right: $grid-gutter / 2;
+          }
+        }
+      }
+      main {
+        #content,
+        .content {
+          &:before {
+            top: 0;
+            right: $grid-gutter / 2;
+          }
+          section {
+            nav {
+              &.active {
+                &+menu {
+                  display: block;
+                  position: fixed;
+                  top: $grid-gutter;
+                  right: $grid-gutter / 2;
+                  z-index: 20;
+                }
+              }
+            }
+            article {
+              min-height: 80vh;
+              padding-top: $grid-gutter*2.5;
+              padding-bottom: $grid-gutter;
+              .toc {
+                display: none;
+              }
+              &+menu {
+              }
+              &.active {
+                &+menu {
+                  display: block;
+                  position: fixed;
+                  top: $grid-gutter;
+                  right: $grid-gutter / 2;
+                  z-index: 20;
+                }
+              }
+            }
+          }
+        }
+      }
+      nav {
+        padding-top: $grid-gutter / 5;
+        min-height: 50vh;
+      }
+      &.isMobile,
+      &.isTablet {
+        footer {
+          dl:first-child {
+            display: none;
+          }
+        }
+      }
+      &.isDesktop {
+        footer {
+          dl:first-child {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}
+body {
+
+  font-size: 1.4rem;
+
+  > .container {
+    padding: $grid-gutter $body-margin-x;
+    max-width: $container-width;
+  }
+
+  header,
+  #content article,
+  #content nav {
+    &+menu {
+      display: none;
+      margin: 0;
+      width: 100%;
+      text-align: right;
+      z-index: 10;
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li {
+          display: inline-block;
+          a {
+            display: block;
+            padding: $grid-gutter / 4 $grid-gutter / 3;
+            font-size: 80%;
+            text-decoration: none;
+            color: $background-color;
+            background-color: $link-color;
+            &:hover,
+            &:active,
+            &:focus,
+            &:visited,
+            &:link {
+              text-decoration: none;
+              color: $background-color;
+              background-color: $link-hover-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  header {
+    padding-top: $grid-gutter * 2;
+    @include headings();
+
+    h1 {
+      font-size: 100%;
+    }
+    h2 {
+      margin-bottom: 0;
+    }
+    p {
+
+    }
+    a {
+      width: 100%;
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  nav {
+    padding-top: $grid-gutter*3;
+    padding-bottom: $grid-gutter*5;
+    min-height: 100vh;
+    h3 {
+      margin: $grid-gutter*2 $grid-gutter/2 $grid-gutter/4 0;
+      font-size: 120%;
+      a {
+        color: $text-color;
+        @include basic-link($text-color);
+        text-decoration: none;
+      }
+    }
+    ol {
+      margin-left: $grid-gutter / 2;
+      li {
+          padding: $grid-gutter/6 0;
+          list-style: disc;
+          &.current {
+            a {
+              font-weight: bold;
+            }
+          }
+        a {
+          font-size: 96%;
+          color: $link-color;
+          @include basic-link($link-color, $link-visited-color, $link-hover-color);
+        }
+      }
+    }
+  }
+
+  main {
+    margin-top: $grid-gutter;
+    @include basic-typography();
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+  }
+
+  footer {
+    @include fixed-font-elements();
+    margin-top: $grid-gutter;
+    margin-bottom: $grid-gutter*5;
+    a {
+      color: $text-color;
+      @include basic-link($text-color, $link-visited-color, $link-hover-color);
+    }
+    dl {
+      display: inline-block;
+      margin-bottom: $grid-gutter;
+      font-size: 66.666%;
+      dt,dd {
+        float: left;
+      }
+      dd + dt {
+        clear: left;
+      }
+      dt {
+        width: $grid-gutter*4;
+      }
+      dd {
+      }
+    }
+    menu {
+      margin-bottom: $grid-gutter;
+      font-size: 66.666%;
+      ul {
+        li {
+          display: inline-block;
+          padding: $grid-gutter/4;
+        }
+      }
+    }
+  }
+}
+
+body {
+	#isMobile, .noDesktop { display: none; }
+	#isTablet { display: none; }
+	#isDesktop, .noMobile { display: block; }
+}
+
+/***************** Copied from Boilderplate *******************/
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}

@@ -1,0 +1,18 @@
+// desktop
+@import "desktop.scss";
+// tablet
+@media screen and (min-width: 720px) and (max-width: 1139px) {
+	@import "tablet.scss";
+}
+// mobile tablet
+@media screen and (min-width: 576px) and (max-width: 719px) {
+	@import "tabletmobile.scss";
+}
+// mobile
+@media screen and (max-width: 575px) {
+	@import "mobile.scss";
+}
+// print
+@media print {
+	@import "print.scss";
+}

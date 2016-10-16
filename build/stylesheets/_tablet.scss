@@ -1,0 +1,34 @@
+//
+// Basic layout and styles for site
+//
+body {
+  > .container {
+    padding: $grid-gutter $body-margin-x / 2;
+  }
+
+  #content {
+    // &:before {
+    //   top: 0;
+    //   right: $grid-gutter / 2;
+    // }
+  }
+
+  #content,
+  .content {
+
+    section {
+      article {
+        &.active:before {
+          top: $grid-gutter * 0.8;
+          left: -7.5%;
+          font-size: 200%;
+        }
+      }
+    }
+  }
+}
+body {
+  #isMobile, .noDesktop { display: none; }
+  #isTablet { display: block; }
+  #isDesktop, .noMobile { display: none; }
+}
