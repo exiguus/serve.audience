@@ -1,5 +1,5 @@
 cd src
-npm run prepare
+npm run build-prepare
 export mode="production"
 serve export
 export mode="development"
