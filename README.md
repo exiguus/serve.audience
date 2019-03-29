@@ -1,17 +1,33 @@
 # serve.audience
-
-## Description
-A presentation framework for frontend web developer. Build on serve and grunt.
-
-## Keywords
-presentation, present, powerpoint, browser presentation, web presentation, serve, sass, grunt, compass, static, framework
-
-## License
-MIT
+A presentation framework for frontend web developer. Build a static site with serve and grunt.
 
 ## Documentation
+
+### Install
+
+```console
+cd src/
+bundle install
+npm install
+```
+
+Deep Dependencies: node/npm, ruby/bundle
+
+### Development
+
+```console
+cd src/
+bundle exec serve
+```
+
+### Build
+
+```
+./make-dist
+```
+
 ### Environment
-- ```build/``` serve environment
+- ```src/``` serve environment
   - ```public/``` static files
     - ```img/``` images
       - ```src/``` image source for ```<picture>``` element and *images* grunt task (gif files won't be resized)
@@ -30,7 +46,7 @@ MIT
 - ```make-dist``` (make dist from build: generate images for picture tag, serve export, combine, minify and prittfy CSS, JavaScript and HTML files)
 
 ### Presentation
-An example Presentation with Dataset (Atom Frontend Development) is predefined. You may take a look on the online version  http://gattner.name/simon/public/frontend/atom/ or the ```dist/``` folder.
+An example Presentation with Dataset (Atom Frontend Development) is predefined. You may take a look on the online version https://exiguus.github.io/serve.audience/dist/ or the ```dist/``` folder.
 #### Keybindings
 - Home Page ```H```
 - Next Page ```→```
@@ -43,3 +59,5 @@ An example Presentation with Dataset (Atom Frontend Development) is predefined. 
 
 #### Browser support
 Google Chrome 53+, Mozilla Firefox 49+, Internet Explorer 11+ and Safari 10+
+
+presentation, present, powerpoint, browser presentation, web presentation, serve, sass, grunt, compass, static, framework, ruby

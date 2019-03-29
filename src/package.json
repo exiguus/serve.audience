@@ -1,0 +1,53 @@
+{
+  "name": "serve.audience",
+  "description": "A presentation framework for frontend web developer. Build a static site with serve and grunt.",
+  "keywords": [
+    "presentation",
+    "present",
+    "powerpoint",
+    "browser presentation",
+    "web presentation",
+    "serve",
+    "sass",
+    "grunt",
+    "compass",
+    "static",
+    "framework"
+  ],
+  "author": "Simon Gattner",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/exiguus/serve.audience.git"
+  },
+  "bugs": {
+    "url": "https://github.com/exiguus/serve.audience/issues"
+  },
+  "homepage": "https://github.com/exiguus/serve.audience",
+  "readme": "https://github.com/exiguus/serve.audience/README.md",
+  "version": "1.0.0",
+  "scripts": {
+    "prepare": "grunt prepare && grunt images",
+    "build": "grunt build"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-banner": "^0.6.0",
+    "grunt-clean": "",
+    "grunt-cli": "^1.3.2",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-copy": "^0.8.1",
+    "grunt-contrib-cssmin": ">=0.4.0",
+    "grunt-contrib-imagemin": "^1.0.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-css-url-embed": "^1.6.1",
+    "grunt-html": "^5.0.0",
+    "grunt-line-remover": "",
+    "grunt-prettify": "^0.4.0",
+    "grunt-remove-empty-lines": "",
+    "grunt-remove-logging": "",
+    "grunt-responsive-images": ""
+  }
+}

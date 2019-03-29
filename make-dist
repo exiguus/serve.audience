@@ -1,9 +1,10 @@
-cd build
-grunt
-grunt images
+cd src
+npm run prepare
 export mode="production"
 serve export
 export mode="development"
-grunt production
+npm run build
 rm -rf ../dist/
 mv html/ ../dist
+cd ..
+
