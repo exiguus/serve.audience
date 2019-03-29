@@ -1,3 +1,5 @@
+[![tests][tests]][tests-url]
+
 # serve.audience
 A presentation framework for frontend web developer. Build a static site with serve and grunt.
 
@@ -11,7 +13,7 @@ bundle install
 npm install
 ```
 
-Deep Dependencies: node/npm, ruby/bundle
+Deep Dependencies: node/npm, ruby/bundle and graphicsmagick
 
 ### Development
 
@@ -60,4 +62,5 @@ An example Presentation with Dataset (Atom Frontend Development) is predefined. 
 #### Browser support
 Google Chrome 53+, Mozilla Firefox 49+, Internet Explorer 11+ and Safari 10+
 
-presentation, present, powerpoint, browser presentation, web presentation, serve, sass, grunt, compass, static, framework, ruby
+[tests]: https://img.shields.io/travis/exiguus/serve.audience/master.svg
+[tests-url]: https://travis-ci.org/exiguus/serve.audience
