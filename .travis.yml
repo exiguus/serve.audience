@@ -1,14 +1,10 @@
 language: ruby
-
 rvm:
-  - 1.1.5
-    gemfile: src/Gemfile
-
+  - "1.1.5"
+gemfile: src/Gemfile
 before_install:
   - nvm install node
-
 install: gem install i18n
-
 after_install:
   - cd src && npm install && cd ..
   - ./make-dist
