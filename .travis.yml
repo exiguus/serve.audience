@@ -1,6 +1,8 @@
 language: ruby
 
-gemfile: src/Gemfile
+rvm:
+  - 1.1.5
+    gemfile: src/Gemfile
 
 before_install:
   - nvm install node
