@@ -22,7 +22,7 @@ bundle exec serve
 
 ### Build
 
-```
+```console
 ./make-dist
 ```
 
