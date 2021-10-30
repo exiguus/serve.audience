@@ -31,7 +31,7 @@
     "build": "grunt build"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
+    "grunt": "^1.3.0",
     "grunt-banner": "^0.6.0",
     "grunt-clean": "",
     "grunt-cli": "^1.3.2",
